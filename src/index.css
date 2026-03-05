@@ -1,0 +1,24 @@
+/* Import Lato from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: 'Glyseric';
+  src: url('./assets/fonts/Glyseric.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Primary Brand Font */
+  --font-glyseric: "Glyseric", ui-sans-serif, system-ui;
+  /* Secondary UI Font */
+  --font-lato: "Lato", sans-serif;
+
+  --color-brand-primary: #313715;
+  --color-brand-medium: #88976c;
+  --color-brand-bg: #e8f4dc;
+  --color-brand-soft: #cfe1bb;
+}
