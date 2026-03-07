@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import LeadModal from './LeadModal';
 
 // Make sure to import the BackgroundCircuit from your illustrations file!
 import { BackgroundCircuit } from './ServiceIllustrations'; 
 
 const ContactFooter: React.FC = () => {
   const studioEase = [0.22, 1, 0.36, 1] as const;
+
+  const [isLeadModalOpen, setIsLeadModalOpen] = useState(false);
 
   // Real-time clock for the Hyderabad HQ
   const [time, setTime] = useState<string>('');
@@ -26,6 +29,13 @@ const ContactFooter: React.FC = () => {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 1, ease: studioEase } }
   };
+
+  const socials = [
+  { name: "Instagram", url: "https://instagram.com/clickoradigital.in" },
+  { name: "Facebook", url: "https://facebook.com/clickoradigital.in" },
+  { name: "LinkedIn", url: "https://linkedin.com/in/clickoradigital" },
+  { name: "Youtube", url: "https://www.youtube.com/@ClickoraDigital" }
+];
 
   return (
     // We wrap the footer in a padded container to match the rounded edges of the dark Process section
@@ -106,8 +116,8 @@ const ContactFooter: React.FC = () => {
             </div>
 
             {/* Giant Circular Button */}
-            <motion.a 
-              href="mailto:hello@clickora.com"
+            <motion.button 
+              onClick={()=>{setIsLeadModalOpen(true)}}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -124,7 +134,7 @@ const ContactFooter: React.FC = () => {
               <span className="relative z-10 font-glyseric text-3xl sm:text-4xl lg:text-5xl tracking-tighter group-hover:text-[#2A311F] transition-colors duration-500">
                 Contact
               </span>
-            </motion.a>
+            </motion.button>
           </div>
 
           {/* --- INFO GRID --- */}
@@ -150,25 +160,40 @@ const ContactFooter: React.FC = () => {
                   <a href="mailto:hello@clickora.com" className="text-[#e8f4dc] hover:text-[#b6c99c] transition-colors">hello@clickora.com</a>
                 </li>
                 <li>
-                  <a href="tel:+910000000000" className="text-[#b6c99c] hover:text-[#e8f4dc] transition-colors">+91 00000 00000</a>
+                  <a href="tel:+917842016626" className="text-[#b6c99c] hover:text-[#e8f4dc] transition-colors">+91 7842016626</a>
                 </li>
               </ul>
             </motion.div>
 
             {/* Column 3: Socials */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariants}>
-              <h4 className="font-lato text-[10px] uppercase tracking-[0.3em] text-[#728156] font-black mb-4 lg:mb-6">Socials</h4>
-              <ul className="flex flex-col gap-3 font-lato text-sm font-medium">
-                {['Instagram', 'Twitter / X', 'LinkedIn', 'Dribbble'].map((social, i) => (
-                  <li key={i}>
-                    <a href="#" className="text-[#b6c99c] hover:text-[#e8f4dc] flex items-center gap-2 group transition-colors w-max">
-                      {social}
-                      <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[#728156] text-[10px]">↗</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+            <motion.div
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  variants={fadeUpVariants}
+>
+  <h4 className="font-lato text-[10px] uppercase tracking-[0.3em] text-[#728156] font-black mb-4 lg:mb-6">
+    Socials
+  </h4>
+
+  <ul className="flex flex-col gap-3 font-lato text-sm font-medium">
+    {socials.map((social, i) => (
+      <li key={i}>
+        <a
+          href={social.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#b6c99c] hover:text-[#e8f4dc] flex items-center gap-2 group transition-colors w-max"
+        >
+          {social.name}
+          <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[#728156] text-[10px]">
+            ↗
+          </span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</motion.div>
 
             {/* Column 4: Back to Top */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariants} className="flex lg:justify-end items-end sm:col-span-2 lg:col-span-1 mt-4 lg:mt-0">
@@ -189,13 +214,14 @@ const ContactFooter: React.FC = () => {
               © {new Date().getFullYear()} Clickora Digital.
             </span>
             <div className="flex flex-wrap justify-center gap-4 lg:gap-6 font-lato text-[9px] lg:text-[10px] uppercase tracking-[0.2em] text-[#88976c] font-bold">
-              <a href="#" className="hover:text-[#e8f4dc] transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-[#e8f4dc] transition-colors">Terms of Service</a>
+              <a href="/privacy-policy" className="hover:text-[#e8f4dc] transition-colors">Privacy Policy</a>
+              <a href="/terms-of-service" className="hover:text-[#e8f4dc] transition-colors">Terms of Service</a>
             </div>
           </div>
 
         </div>
       </footer>
+       <LeadModal isOpen={isLeadModalOpen} onClose={()=>{setIsLeadModalOpen(false)}}/>
     </div>
   );
 };

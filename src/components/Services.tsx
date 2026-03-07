@@ -9,10 +9,12 @@ import {
   FiberOpticNetwork,
   BackgroundCircuit
 } from './ServiceIllustrations';
+import LeadModal from './LeadModal';
 
 const ServicesStudio: React.FC = () => {
   const studioEase = [0.22, 1, 0.36, 1] as const;
   const [time, setTime] = useState<string>('');
+  const [isLeadModalOpen, setIsLeadModalOpen] = useState(false);
 
   useEffect(() => {
     const updateTime = () => setTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
@@ -29,25 +31,26 @@ const ServicesStudio: React.FC = () => {
   const services = [
     {
       id: "01", title: "Designing", tag: "UI/UX • Branding",
-      details: "High-fidelity visual systems that bridge the gap between human emotion and digital interfaces.",
+      details: "High-fidelity visual systems connecting human emotion with digital interfaces, using thoughtful creativity, modern aesthetics, and user-focused design to communicate ideas clearly and create lasting impressions.",
       gridClass: "lg:col-span-2 lg:row-span-1",
       points: ["Logo", "Brochure", "Posters"]
     },
     {
-      id: "02", title: "Development", tag: "Next.js • Shopify",
-      details: "Clean code architectures engineered for extreme speed and seamless scalability.",
+      id: "02", title: "Development", tag: "React.js • Ecommerce",
+      details: "Clean code architectures built for speed and scalability, delivering high-performance platforms with maintainable code, fast loading, secure systems, and reliable performance for growing digital businesses.",
       gridClass: "lg:col-span-1 lg:row-span-2",
       points: ["Landing Pages", "Websites", "E-commerce Solutions"]
     },
     {
-      id: "03", title: "Marketing", tag: "Ads • Growth",
-      details: "Precision-targeted campaigns designed to dominate search and social landscapes.",
+      id: "03", title: "Marketing", tag: "Ads • SMM",
+      details: "Precision-targeted campaigns designed to dominate search and social platforms, using data-driven strategies to reach the right audience, maximize engagement, and drive measurable digital growth.",
       gridClass: "lg:col-span-2 lg:row-span-1",
       points: ["Digital", "Social Media", "Email", "WhatsApp", "Ads Campaigns"]
     }
   ];
 
   return (
+    <>
     <section id="services" className="relative py-20 lg:py-24 bg-white overflow-hidden text-[#2A311F]">
 
       <AnimationStyles />
@@ -104,7 +107,7 @@ const ServicesStudio: React.FC = () => {
           <motion.p
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
             /* MOBILE UPGRADE: Responsive max-width so the paragraph breathes on mobile */
-            className="font-lato text-[13px] sm:text-sm lg:text-base max-w-[90%] sm:max-w-sm lg:max-w-xs text-[#728156] font-medium leading-relaxed lg:text-right"
+            className="font-lato text-[13px] sm:text-sm lg:text-base max-w-[90%] sm:max-w-sm lg:max-w-xs text-black font-medium leading-relaxed lg:text-right"
           >
             We don't just build; we engineer competitive advantages through three core pillars of digital excellence.
           </motion.p>
@@ -189,7 +192,7 @@ const ServicesStudio: React.FC = () => {
               {/* --- BOTTOM SECTION --- */}
               <div className="relative z-10 flex flex-col items-center lg:items-start w-full mt-auto">
                 <p
-                  className={`font-lato text-[11px] lg:text-sm text-[#728156] leading-relaxed font-medium
+                  className={`font-lato text-[11px] lg:text-sm text-black leading-relaxed font-medium
                   /* Center text on mobile */
                   text-center lg:text-left
                   
@@ -201,14 +204,14 @@ const ServicesStudio: React.FC = () => {
                   {service.details}
                 </p>
 
-                <div className="mt-4 lg:mt-6 flex items-center justify-center lg:justify-start gap-2 lg:gap-3 text-[#728156] lg:opacity-0 group-hover:opacity-100 lg:translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                {/* <div className="mt-4 lg:mt-6 flex items-center justify-center lg:justify-start gap-2 lg:gap-3 text-[#728156] lg:opacity-0 group-hover:opacity-100 lg:translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                   <span className="font-lato text-[9px] lg:text-[10px] uppercase font-black tracking-widest">
                     Explore Expertise
                   </span>
                   <div className="w-4 h-4 lg:w-5 lg:h-5 rounded-full border border-[#728156] flex items-center justify-center text-[8px] lg:text-[10px] font-bold">
                     →
                   </div>
-                </div>
+                </div> */}
               </div>
 
             </motion.div>
@@ -251,8 +254,8 @@ const ServicesStudio: React.FC = () => {
             </div>
 
             {/* CTA Button */}
-            <motion.a
-              href="#contact"
+            <motion.button
+              onClick={()=>{setIsLeadModalOpen(true)}}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="group relative overflow-hidden flex items-center justify-center gap-3 font-lato px-6 py-3.5 sm:py-3 text-[10px] font-black uppercase tracking-widest text-white bg-[#728156] rounded-xl w-full sm:w-auto hover:shadow-[0_10px_30px_rgba(114,129,86,0.3)] transition-all duration-300"
@@ -262,11 +265,13 @@ const ServicesStudio: React.FC = () => {
                 <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
               </span>
               <div className="absolute inset-0 bg-[#cfe1bb] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
-            </motion.a>
+            </motion.button>
           </div>
         </div>
       </div>
     </section>
+    <LeadModal isOpen={isLeadModalOpen} onClose={()=>{setIsLeadModalOpen(false)}} />
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import { motion } from 'framer-motion';
+import LeadModal from './LeadModal';
 
 
 const CircuitLine = memo(({ path, endX, endY, duration, delay }: { path: string; endX: number; endY: number; duration: number; delay: number }) => (
@@ -43,7 +44,9 @@ const Hero: React.FC = () => {
     animate: { opacity: 1, y: 0 },
   };
 
+  const [isLeadModalOpen, setIsLeadModalOpen] = useState(false);
   return (
+    <>
     <section 
       role="banner"
       className="lg:mt-[10px] mt-10 lg:px-4 lg:pb-4 overflow-hidden bg-transparent selection:bg-[#b6c99c] selection:text-white"
@@ -124,23 +127,25 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mt-8 lg:mt-10 bg-white/40 border border-white/50 backdrop-blur-xl p-6 lg:p-10 rounded-[24px] lg:rounded-[32px] max-w-2xl mx-4 lg:mx-auto shadow-[0_20px_40px_rgba(114,129,86,0.08)]"
           >
-            <p className="font-lato text-[#728156] text-sm md:text-lg lg:text-xl font-medium leading-relaxed">
+            <p className="font-lato text-black text-sm md:text-lg lg:text-xl font-medium leading-relaxed">
               We turn <span className="text-[#2A311F] font-bold">ambitious ideas</span> into high-converting digital realities. Engineering for brands that play to win.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 type="button"
+                onClick={() => setIsLeadModalOpen(true)}
                 className="w-full sm:w-auto font-lato px-8 py-4 bg-[#728156] text-white font-black uppercase tracking-widest rounded-xl hover:bg-[#5b6744] hover:scale-[1.02] transition-all active:scale-95 text-[10px] lg:text-xs shadow-[0_8px_20px_rgba(114,129,86,0.2)]"
               >
                 Start a Project
               </button>
-              <button 
+              <a 
+              href='#work'
                 type="button"
                 className="w-full sm:w-auto font-lato px-8 py-4 border-2 border-[#b6c99c] text-[#728156] font-bold uppercase tracking-widest rounded-xl hover:bg-[#cfe1bb]/50 transition-all text-[10px] lg:text-xs"
               >
                 View Work
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>
@@ -169,6 +174,8 @@ const Hero: React.FC = () => {
         </div>
       </div>
     </section>
+    <LeadModal isOpen={isLeadModalOpen}  onClose={()=>{setIsLeadModalOpen(false)}}/>
+    </>
   );
 };
 
