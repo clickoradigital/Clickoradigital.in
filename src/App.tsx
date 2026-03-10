@@ -17,8 +17,9 @@ const HomePage = () => {
     <>
       <main className="px-4 pb-4">
         <Hero />
-        <Services />
         <AboutClickora />
+        <Services />
+
         <Process />
       </main>
       <Works />
