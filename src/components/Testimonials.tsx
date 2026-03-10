@@ -72,7 +72,7 @@ const CompactReview: React.FC = () => {
               <div>
                 <h4 className="font-glyseric text-lg lg:text-2xl text-[#728156] tracking-tight uppercase">Yugandhar</h4>
                 <p className="font-lato text-[9px] lg:text-[10px] uppercase tracking-[0.2em] text-[#88976c] font-bold mt-1">
-                  CEO, SURAYRAM Properties
+                  CEO, SURYARAM Properties
                 </p>
               </div>
             </div>

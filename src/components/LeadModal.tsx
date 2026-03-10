@@ -10,7 +10,7 @@ interface LeadModalProps {
 const LeadModal: React.FC<LeadModalProps> = ({ isOpen, onClose }) => {
   const studioEase = [0.22, 1, 0.36, 1] as const;
   const [activeService, setActiveService] = useState<string>('Web Development');
-  const services = ['Web Development', 'Digital Marketing', 'Branding', 'E-Commerce'];
+  const services = [ 'Web Development', 'Branding', 'Google/Meta Ads', 'Social Media Marketing'];
 
   // --- Form & EmailJS State ---
   const formRef = useRef<HTMLFormElement>(null);
