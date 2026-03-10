@@ -50,6 +50,7 @@ const Navbar: React.FC = () => {
             <a href="#about" className="hover:text-[#728156] transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#728156] rounded-sm">About</a>
             <a href="#services" className="hover:text-[#728156] transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#728156] rounded-sm">Services</a>
             <a href="#work" className="hover:text-[#728156] transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#728156] rounded-sm">Work</a>
+            <a href="#contact" className="hover:text-[#728156] transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#728156] rounded-sm">Contact</a>
           </div>
 
           {/* CENTER: Brand Identity */}

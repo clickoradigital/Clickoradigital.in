@@ -10,6 +10,7 @@ import Contact from './components/Contact';
 // Import your new pages (we will create these next)
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import Testimonials from './components/Testimonials';
 
 // Extract the main landing page content into its own component
 const HomePage = () => {
@@ -23,6 +24,7 @@ const HomePage = () => {
         <Process />
       </main>
       <Works />
+      <Testimonials />
     </>
   );
 };

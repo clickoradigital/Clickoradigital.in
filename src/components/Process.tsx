@@ -86,7 +86,7 @@ const ProcessReactor: React.FC = () => {
 
   return (
      <>
-    // SEO & A11y: Added aria-labelledby to link the section to its main heading
+    
     <section aria-labelledby="reactor-heading" className="relative bg-[#2A311F] py-24 md:py-40 overflow-hidden rounded-[2rem] md:rounded-[4rem] mx-2 sm:mx-4 my-10">
       
       {/* --- AMBIENT BACKGROUND GLOWS --- */}
