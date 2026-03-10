@@ -4,7 +4,7 @@ import Hero from './components/HeroSection';
 import Services from './components/Services';
 import Process from './components/Process';
 import AboutClickora from './components/About';
-import Works from './components/Works';
+// import Works from './components/Works';
 import Contact from './components/Contact';
 
 // Import your new pages (we will create these next)
@@ -23,7 +23,7 @@ const HomePage = () => {
 
         <Process />
       </main>
-      <Works />
+      {/* <Works /> */}
       <Testimonials />
     </>
   );

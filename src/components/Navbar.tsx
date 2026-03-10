@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center gap-6 lg:gap-10 font-lato text-[10px] lg:text-[11px] uppercase tracking-[0.3em] font-black text-[#2A311F]">
             <a href="#about" className="hover:text-[#728156] transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#728156] rounded-sm">About</a>
             <a href="#services" className="hover:text-[#728156] transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#728156] rounded-sm">Services</a>
-            <a href="#work" className="hover:text-[#728156] transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#728156] rounded-sm">Work</a>
+            {/* <a href="#work" className="hover:text-[#728156] transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#728156] rounded-sm">Work</a> */}
             <a href="#contact" className="hover:text-[#728156] transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#728156] rounded-sm">Contact</a>
           </div>
 
@@ -128,7 +128,7 @@ const Navbar: React.FC = () => {
 
               {/* Navigation Links */}
               <div className="flex flex-col gap-6 relative z-10 py-10 w-full border-t border-[#b6c99c]/30">
-                {['About', 'Services', 'Work', 'Contact'].map((item, i) => (
+                {['About', 'Services', 'Contact'].map((item, i) => (
                   <motion.a
                     key={item}
                     custom={i}
