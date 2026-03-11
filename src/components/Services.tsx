@@ -98,8 +98,8 @@ const ServicesStudio: React.FC = () => {
                 /* MOBILE UPGRADE: Specific mobile font size (44px) and line height so it fits perfectly */
                 className="font-glyseric text-[44px] leading-[0.95] sm:text-5xl md:text-7xl lg:text-8xl lg:leading-[0.9] tracking-tighter text-[#2A311F]"
               >
-                Crafting <br />
-                <span className="italic font-light text-[#88976c] opacity-80">Distinction.</span>
+                Our <br />
+                <span className="italic font-light text-[#88976c] opacity-80">Services.</span>
               </motion.h2>
             </div>
           </div>
