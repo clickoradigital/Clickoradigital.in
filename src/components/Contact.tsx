@@ -157,7 +157,7 @@ const ContactFooter: React.FC = () => {
               <h4 className="font-lato text-[10px] uppercase tracking-[0.3em] text-[#728156] font-black mb-4 lg:mb-6">Connect</h4>
               <ul className="flex flex-col gap-3 font-lato text-sm font-medium">
                 <li>
-                  <a href="mailto:hello@clickora.com" className="text-[#e8f4dc] hover:text-[#b6c99c] transition-colors">hello@clickora.com</a>
+                  <a href="mailto:Clickoradigital.in@gmail.com" className="text-[#e8f4dc] hover:text-[#b6c99c] transition-colors">Clickoradigital.in@gmail.com</a>
                 </li>
                 <li>
                   <a href="tel:+917842016626" className="text-[#b6c99c] hover:text-[#e8f4dc] transition-colors">+91 7842016626</a>
